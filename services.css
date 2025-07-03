@@ -1,0 +1,269 @@
+/* ---------------------------------------------
+   Import Fonts
+--------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap');
+
+/* ---------------------------------------------
+   Reset & Global Styles
+--------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ---------------------------------------------
+   Header Section
+--------------------------------------------- */
+.header {
+  padding: 20px 0;
+  background-color: #f5f5f5;
+}
+.nav {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 45px;
+  flex-wrap: wrap;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Navigation Links */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 45px;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #464646;
+  font-weight: 450;
+  font-size: 20px;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #1a58d3;
+}
+
+.active-underline {
+  border-bottom: 3px solid #0040ff;
+  padding-bottom: 2px;
+  color: inherit;
+}
+
+/* ---------------------------------------------
+   Theme Toggle Switch
+--------------------------------------------- */
+.theme-toggle-wrapper {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  margin-bottom: 4px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #c5c3c3;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #0d4aff;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* ---------------------------------------------
+   Download CV Button
+--------------------------------------------- */
+.download-btn {
+  color: white;
+  background-color: black;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 550;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.download-btn:hover {
+  background-color: #147de6;
+  transform: scale(1.02);
+}
+
+/* ---------------------------------------------
+   Main Content Area
+--------------------------------------------- */
+.main {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  position: relative;
+  min-height: 70vh;
+}
+
+/* Section */
+.section {
+  text-align: center;
+}
+
+.big-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* ---------------------------------------------
+   Services Section
+--------------------------------------------- */
+.service-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  
+}
+
+.box {
+  background-color: #dedddd;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  margin-bottom: 20px;
+  color: #0d4aff;
+}
+
+.box h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+
+.box p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------
+   Dark Mode Styles
+--------------------------------------------- */
+body.dark-mode {
+  background-color: #000000;
+  color: #e0e0e0;
+}
+
+body.dark-mode .header {
+  background-color: #000000;
+}
+
+body.dark-mode .nav-link {
+  color: #ccc;
+}
+
+body.dark-mode .nav-link:hover {
+  color: #fff;
+}
+
+body.dark-mode .theme-toggle-wrapper {
+  color: #e0e0e0;
+}
+
+body.dark-mode .download-btn {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode .download-btn:hover {
+  background-color: #0d4aff;
+  color: white;
+  transform: scale(1.03);
+}
+
+body.dark-mode .big-title,
+body.dark-mode .section-desc,
+body.dark-mode .box h3,
+body.dark-mode .box p {
+  color: white;
+}
+
+body.dark-mode .box {
+  background-color: #1c1c1c;
+}

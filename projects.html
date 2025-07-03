@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects - Anish Tamang</title>
+  <link rel="stylesheet" href="projects.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="theme-toggle-wrapper">
+        <label class="switch">
+          <input type="checkbox" id="darkToggle" />
+          <span class="slider round"></span>
+        </label>
+        <div id="theme-label">Light</div>
+      </div>
+
+      <ul class="nav-list">
+        <li><a href="portfolio.html" class="nav-link">Home</a></li>
+        <li><a href="aboutMe.html" class="nav-link">About Me</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="projects.html" class="nav-link active"><span class="active-underline">My Projects</span></a></li>
+        <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+      </ul>
+      <button class="download-btn">Download CV</button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="projects-section">
+      <h1 class="page-title">My Projects</h1>
+      <p class="projects-description">I have worked on multiple projects throughout my studies, some are in group projects and some are my individual works as well.</p>
+
+      <div class="project-categories">
+        <button class="category-btn" data-category="uiux">UI/UX Designs</button>
+        <button class="category-btn active" data-category="website">Website Designs</button>
+        <button class="category-btn" data-category="mobile">Mobile App Designs</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Example Project Cards -->
+        <div class="project-card" data-category="website">
+          <div class="project-image">
+            <img src="/images/airpodWeb.png" alt="airpod web Landing Page Design" />
+          </div>
+          <div class="project-info">
+            <span class="project-category">Web Design</span>
+            <h3 class="project-title">Airpod Website Page Design</h3>
+          </div>
+        </div>
+          <div class="project-card" data-category="website">
+          <div class="project-image">
+            <img src="/images/recipeWeb.png" alt="recipe web Landing Page Design" />
+          </div>
+          <div class="project-info">
+            <span class="project-category">Web Design</span>
+            <h3 class="project-title">Recipe Website Page Design</h3>
+          </div>
+        </div>
+          <div class="project-card" data-category="website">
+          <div class="project-image">
+            <img src="/images/travelWebsite.png" alt="travel web Landing Page Design" />
+          </div>
+          <div class="project-info">
+            <span class="project-category">Web Design</span>
+            <h3 class="project-title">Travel Website Page Design</h3>
+          </div>
+        </div>
+
+        <!-- Add additional cards as needed -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('darkToggle');
+    const label = document.getElementById('theme-label');
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggle.checked = true;
+      label.textContent = 'Dark';
+    }
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+        label.textContent = 'Dark';
+      } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+        label.textContent = 'Light';
+      }
+    });
+
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const category = btn.getAttribute('data-category');
+        projectCards.forEach(card => {
+          card.style.display = card.getAttribute('data-category') === category ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

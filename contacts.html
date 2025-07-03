@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacts - Anish Tamang</title>
+  <link rel="stylesheet" href="contacts.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- CDN link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-wrapper">
+        <label class="switch">
+          <input type="checkbox" id="darkToggle" />
+          <span class="slider round"></span>
+        </label>
+        <div id="theme-label">Light</div>
+      </div>
+      <!-- Navigation -->
+      <ul class="nav-list">
+        <li><a href="portfolio.html" class="nav-link">Home</a></li>
+        <li><a href="aboutMe.html" class="nav-link">About Me</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="projects.html" class="nav-link">My Projects</a></li>
+        <li><a href="#" class="nav-link active"><span class="active-underline">Contacts</span></a></li>
+      </ul>
+      <button class="download-btn">Download CV</button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="contact-section">
+      <div class="contact-content">
+        <h1 class="contact-title">Let's Design Together</h1>
+        <p class="contact-description">
+          Design interesting works together using our creative side and make working 
+          together more interesting.
+        </p>
+        
+        <div class="contact-form">
+          <input type="email" class="email-input" placeholder="Enter Your Email" />
+          <button class="contact-btn">Contact Me</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <nav class="footer-nav">
+      <ul class="footer-nav-list">
+        <li><a href="portfolio.html" class="footer-nav-link">Home</a></li>
+        <li><a href="aboutMe.html" class="footer-nav-link">About Me</a></li>
+        <li><a href="services.html" class="footer-nav-link">Services</a></li>
+        <li><a href="projects.html" class="footer-nav-link">Projects</a></li>
+        <li><a href="#" class="footer-nav-link">Contact</a></li>
+      </ul>
+      
+      <div class="footer-social-icons">
+        <a href="#" class="footer-social-link" aria-label="Facebook">
+         <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="#" class="footer-social-link" aria-label="Twitter">
+         <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="#" class="footer-social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="footer-social-link" aria-label="LinkedIn">
+         <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </nav>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('darkToggle');
+    const label = document.getElementById('theme-label');
+
+    toggle.addEventListener('change', () => {
+      const isDark = toggle.checked;
+      document.body.classList.toggle('dark-mode', isDark);
+      label.textContent = isDark ? 'Dark' : 'Light';
+      localStorage.setItem('dark-mode', isDark);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const darkMode = localStorage.getItem('dark-mode') === 'true';
+      toggle.checked = darkMode;
+      document.body.classList.toggle('dark-mode', darkMode);
+      label.textContent = darkMode ? 'Dark' : 'Light';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Anish Tamang</title>
+    <link rel="stylesheet" href="aboutMe.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="theme-toggle-wrapper">
+                <label class="switch">
+                    <input type="checkbox" id="darkToggle" />
+                    <span class="slider round"></span>
+                </label>
+                <div id="theme-label">Light</div>
+            </div>
+
+            <ul class="nav-list">
+                <li><a href="portfolio.html" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link active"><span class="active-underline">About Me</span></a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="projects.html" class="nav-link">My Projects</a></li>
+                <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+            </ul>
+            <button class="download-btn">Download CV</button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="about-section">
+            <h1 class="page-title">About Me</h1>
+            <p class="about-description">
+                I'm a second-year IT student at Softwarica College, passionate 
+                about frontend development and UI/UX design. I enjoy building 
+                responsive web interfaces using React, HTML, and CSS while 
+                continuously learning and improving.
+            </p>
+
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">UX</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="90">
+                            <div class="skill-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Website Design</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="85">
+                            <div class="skill-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">App Design</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="95">
+                            <div class="skill-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const toggle = document.getElementById('darkToggle');
+        const label = document.getElementById('theme-label');
+
+        toggle.addEventListener('change', () => {
+            const isDark = toggle.checked;
+            document.body.classList.toggle('dark-mode', isDark);
+            label.textContent = isDark ? 'Dark' : 'Light';
+            localStorage.setItem('dark-mode', isDark);
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const darkMode = localStorage.getItem('dark-mode') === 'true';
+            toggle.checked = darkMode;
+            document.body.classList.toggle('dark-mode', darkMode);
+            label.textContent = darkMode ? 'Dark' : 'Light';
+        });
+    </script>
+</body>
+</html>

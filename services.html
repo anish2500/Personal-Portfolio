@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services - Anish Tamang</title>
+  <link rel="stylesheet" href="services.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-wrapper">
+        <label class="switch">
+          <input type="checkbox" id="darkToggle" />
+          <span class="slider round"></span>
+        </label>
+        <div id="theme-label">Light</div>
+      </div>
+
+      <!-- Navigation -->
+      <ul class="nav-list">
+        <li><a href="portfolio.html" class="nav-link">Home</a></li>
+        <li><a href="aboutMe.html" class="nav-link">About Me</a></li>
+        <li><a href="services.html" class="nav-link active"><span class="active-underline">Services</span></a></li>
+        <li><a href="projects.html" class="nav-link">My Projects</a></li>
+        <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+      </ul>
+      <button class="download-btn">Download CV</button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="section">
+      <h1 class="big-title">Services</h1>
+      <p class="section-desc">Developing fast, responsive websites using React, HTML, CSS, and JavaScript with clean, maintainable code.</p>
+
+      <div class="service-boxes">
+        <div class="box">
+          <div class="icon">
+            <!-- Web Design SVG -->
+          <i class="fa-solid fa-desktop fa-3x"></i>
+          </div>
+          <h3>Web Design</h3>
+          <p>I create stunning frontend design and make them interactive</p>
+        </div>
+
+        <div class="box">
+          <div class="icon">
+            <!-- Mobile App SVG -->
+        <i class="fa-solid fa-tablet-screen-button fa-3x"></i>
+          </div>
+          <h3>Mobile App Design</h3>
+          <p>I create stunning application interfaces and creative designs</p>
+        </div>
+
+        <div class="box">
+          <div class="icon">
+            <!-- UI/UX SVG -->
+           
+          <i class="fa-brands fa-figma fa-3x"></i>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>I create stunning modern interfaces with creative thinking</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('darkToggle');
+    const label = document.getElementById('theme-label');
+
+    toggle.addEventListener('change', () => {
+      const isDark = toggle.checked;
+      document.body.classList.toggle('dark-mode', isDark);
+      label.textContent = isDark ? 'Dark' : 'Light';
+      localStorage.setItem('dark-mode', isDark);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const darkMode = localStorage.getItem('dark-mode') === 'true';
+      toggle.checked = darkMode;
+      document.body.classList.toggle('dark-mode', darkMode);
+      label.textContent = darkMode ? 'Dark' : 'Light';
+    });
+  </script>
+</body>
+</html>

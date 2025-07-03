@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anish Tamang - Frontend Developer</title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- CDN link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-wrapper">
+        <label class="switch">
+          <input type="checkbox" id="darkToggle" />
+          <span class="slider round"></span>
+        </label>
+        <div id="theme-label">Light</div>
+      </div>
+
+      <!-- Navigation -->
+      <ul class="nav-list">
+        <li><a href="portfolio.html" class="nav-link active"><span class="active-underline">Home</span></a></li>
+        <li><a href="aboutMe.html" class="nav-link">About Me</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="projects.html" class="nav-link">My Projects</a></li>
+        <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+      </ul>
+      <button class="download-btn">Download CV</button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="greeting">Hi I am</p>
+        <h1 class="name">Anish Tamang</h1>
+        <h2 class="title">Frontend</h2>
+        <h2 class = "intended">Developer</h2>
+        <p class="description">
+          I craft responsive, user-friendly websites using React, HTML, 
+          and CSS. Passionate about UI/UX, I focus on clean design and 
+          smooth interactions to create engaging digital experiences.
+        </p>
+        <button class="hire-btn">Hire Me</button>
+      </div>
+
+      <div class="social-icons">
+        <a href="#" class="social-link" aria-label="Facebook">
+         <i class="fa-brands fa-facebook fa-2x"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter">
+         <i class="fa-brands fa-twitter fa-2x"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram fa-2x"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="LinkedIn">
+         <i class="fa-brands fa-linkedin fa-2x"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('darkToggle');
+    const label = document.getElementById('theme-label');
+
+    toggle.addEventListener('change', () => {
+      const isDark = toggle.checked;
+      document.body.classList.toggle('dark-mode', isDark);
+      label.textContent = isDark ? 'Dark' : 'Light';
+      localStorage.setItem('dark-mode', isDark);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const darkMode = localStorage.getItem('dark-mode') === 'true';
+      toggle.checked = darkMode;
+      document.body.classList.toggle('dark-mode', darkMode);
+      label.textContent = darkMode ? 'Dark' : 'Light';
+    });
+  </script>
+</body>
+</html>
